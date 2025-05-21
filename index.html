@@ -5,51 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kocoumbo | Junior Web Developer</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Kocoumbo</h1>
-      <p>Junior Web Developer | HTML, CSS, JavaScript</p>
-    </div>
-  </header>
 
-  <section class="about container">
-    <h2>About Me</h2>
-    <p>
-      I'm a computer engineering student passionate about building simple and responsive websites. I specialize in HTML5, CSS3, and I’m currently learning JavaScript and backend technologies like PHP and Node.js. I’m ready to work hard and grow through real freelance projects.
-    </p>
-  </section>
+ <header>
+  <div class="container">
+    <h1>Kocoumbo</h1>
+    <p>Junior Web Developer & Lifelong Learner</p>
+    <button id="dark-toggle" aria-label="Toggle dark mode">🌙</button>
+  </div>
+  <div class="wave"></div>
+</header>
 
-  <section class="skills container">
-    <h2>Skills</h2>
-    <ul>
-      <li>HTML5</li>
-      <li>CSS3</li>
-      <li>JavaScript (basic)</li>
-      <li>C / C++ / Java (academic level)</li>
-      <li>Git & GitHub</li>
-      <li>Linux usage</li>
-    </ul>
-  </section>
+  <main>
+    <section class="about container" data-animate>
+      <h2>👋 About Me</h2>
+      <p>
+        I'm a computer engineering student passionate about building clean, responsive websites.
+        I specialize in HTML5, CSS3, and I'm currently learning JavaScript and backend technologies like PHP and Node.js.
+        Ready to work hard and grow through real freelance projects.
+      </p>
+    </section>
 
-  <section class="projects container">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>CPU Scheduling Simulator (C)</h3>
-      <p>Simulated First Come First Serve, Shortest Job First, and Round Robin scheduling algorithms in C, running on Linux terminal.</p>
-      <a href="https://github.com/kocoumbo/cpu-scheduling-algorithms" target="_blank">View on GitHub</a>
-    </div>
-  </section>
+    <section class="skills container">
+      <h2>🛠 Skills</h2>
+      <ul>
+        <li>HTML5</li>
+        <li>CSS3</li>
+        <li>JavaScript (basic)</li>
+        <li>C / C++ / Java</li>
+        <li>Git & GitHub</li>
+        <li>Linux usage</li>
+      </ul>
+    </section>
 
-  <section class="contact container">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:kalambayimardochee019@gmail.com">kalambayimardochee019@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/kocoumbo" target="_blank">github.com/kocoumbo</a></p>
-  </section>
+    <section class="projects container">
+      <h2>💻 Projects</h2>
+      <div class="project-card">
+        <h3>CPU Scheduling Simulator (C)</h3>
+        <p>Simulated FCFS, SJF, and Round Robin scheduling algorithms in C on a Linux terminal.</p>
+        <a href="https://github.com/kocoumbo/cpu-scheduling-algorithms" target="_blank">View on GitHub →</a>
+      </div>
+    </section>
+
+    <section class="contact container">
+      <h2>📬 Contact</h2>
+      <p>Email: <a href="mailto:kalambayimardochee019@gmail.com">kalambayimardochee019@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/kocoumbo" target="_blank">github.com/kocoumbo</a></p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 Kocoumbo. All rights reserved.</p>
+    <p>© 2025 Kocoumbo. Built with passion.</p>
   </footer>
+  <script>
+  const toggle = document.getElementById('dark-toggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggle.textContent = document.body.classList.contains('dark-mode') ? '☀' : '🌙';
+  });
+</script>
+<script>
+  const animatedElements = document.querySelectorAll('[data-animate]');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+
+  animatedElements.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
